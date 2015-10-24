@@ -3,8 +3,8 @@ This util concatenate text files together. <br />
 It reads stdin for file paths and then merge them on after the other *. <br />
 It ether outputs the result to stdout, or to a file specified in the command line .  <br />
 Example use: <br />
-$ gcc -o fmerge fmerge.c <br />
-$ ls */*.java | ./fmerge outputfile.txt  <br />
+<pre><code>$ gcc -o fmerge fmerge.c <br />
+$ ls  */*.java | ./fmerge outputfile.txt  <br />
 Processing file: Collisions/Collisions.java <br />
 Processing file: Controller/ExplosionObserver.java <br />
 Processing file: Controller/GameController.java <br />
@@ -36,6 +36,6 @@ Processing file: lab5game/GameSetup.java <br />
 Processing file: lab5game/Lab5game.java <br />
  <br />
 Files processed: 29 <br />
-$ <br />
-All the contents of the files from ls */*.java is merge into the file outputfile.txt <br />
+$ <br /></code></pre>
+All the contents of the files from "ls" command is merge into the file outputfile.txt <br />
 *Note it adds the file path between different files in outputfile.txt <br />
