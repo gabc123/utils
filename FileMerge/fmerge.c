@@ -3,7 +3,8 @@
 #include <string.h>
 #define FILENAME_MAX_LENGTH 500
 
-void writeFile(FILE *input,char *inputName,FILE *output) {
+void writeFile(FILE *input,char *inputName,FILE *output) 
+{
 	fprintf(stderr, "Processing file: %s\n", inputName);
 	fprintf(output,"\n\nFile: %s\n",inputName);
 	char ch = '\0';
@@ -12,7 +13,8 @@ void writeFile(FILE *input,char *inputName,FILE *output) {
 	}
 }
 
-int readlineFromFile(char *buffer, FILE *input, size_t n) {
+int readlineFromFile(char *buffer, FILE *input, size_t n) 
+{
 	char ch = '\0';
 	int i = 0;
 	int ret = 0;
@@ -28,13 +30,14 @@ int readlineFromFile(char *buffer, FILE *input, size_t n) {
 	return i;
 }
 
-int readFileList(FILE *output) {
+int readFileList(FILE *output) 
+{
 	int fileCount = 0;
 	char inputName[FILENAME_MAX_LENGTH];
 	FILE *input = NULL;
 	while(0 < readlineFromFile(inputName,stdin,FILENAME_MAX_LENGTH)) {
 		input = fopen(inputName,"r");
-		if (input == NULL){
+		if (input == NULL) {
 			fprintf(stderr, "error: file not found: %s\n", inputName);
 			continue;
 		}
@@ -46,16 +49,15 @@ int readFileList(FILE *output) {
 	return fileCount;
 }
 
-int main(int argc,char *argv[]) {
+int main(int argc,char *argv[]) 
+{
 	char outputName[FILENAME_MAX_LENGTH];
 	FILE *output = stdout;
-	if (argc == 2)
-	{
+	if (argc == 2) {
 		strncpy(outputName,argv[1],FILENAME_MAX_LENGTH);
 		outputName[FILENAME_MAX_LENGTH - 1] = '\0';
 		output = fopen(outputName,"w+");
-		if (output == NULL)
-		{
+		if (output == NULL) {
 			fprintf(stderr, "could not create output file: %s\n", outputName);
 			output = stdout;
 		}
